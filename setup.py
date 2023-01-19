@@ -30,6 +30,6 @@ setup(
     name="nodelist_inflator",
     packages=find_namespace_packages(include=["nodelist_inflator", "nodelist_inflator.*"]),
     url="https://github.com/zanussbaum/nodelist-inflator",
-    version="0.1.1",
+    version="0.2.0",
     zip_safe=False,
 )
