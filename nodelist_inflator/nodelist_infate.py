@@ -29,10 +29,19 @@ def cli():
     parser = argparse.ArgumentParser(description='Expand hostnames')
     parser.add_argument("--nodelist", type=str, default="ip-26-0-129-85,ip-26-0-130-171,ip-26-0-137-[14-15,22]", help="List of nodes", required=True)
     parser.add_argument("--write", action="store_true", help="Write expanded hostnames to a hostname file")
+    parser.add_argument("--hostname", type=str, help="Hostname to get rank of")
 
     args = parser.parse_args()
 
     expanded = expand_hostnames(args.nodelist)
+
+    if args.hostname:
+        for i, hostname in enumerate(expanded):
+            if hostname == args.hostname:
+                print(i)
+                break
+        else:
+            raise Exception(f"Hostname {args.hostname} not found")
     
     if args.write:
         lines = [f"{host} slots=8\n" for host in expanded]
