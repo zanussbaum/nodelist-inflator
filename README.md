@@ -20,6 +20,13 @@ ip-aaaaaf slots=8
 
 # Usage
 
-```baseh
-nodelist_inflate --nodelist=ip-xxxxxx,ip-yyyyyy,ip-aaaaa-[b-c,f] --write
+Write a hostfile on the fly (useful for DeepSpeed integreations)
+```console
+foo@bar:~$ nodelist_inflate --nodelist=ip-xxxxxx,ip-yyyyyy,ip-aaaaa-[b-c,f] --write
 ```
+
+Get the rank of the current host
+```console
+foo@bar:~$ nodelist_inflate --nodelist=ip-xxxxxx,ip-yyyyyy,ip-aaaaa-[b-c,f] --hostname=ip-xxxxxx
+0 # the index of the hostname in the nodelist
+``` 
